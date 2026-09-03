@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="pt-PT">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0b1720" />
+    <link rel="canonical" href="https://pedroflc.github.io/automacao-torre-telescopio/" />
+    <meta
+      name="description"
+      content="Projeto modular de automação da torre do telescópio: portadas, sensores ambientais e futura integração do mini-PC ARM, PLC e encoder da cúpula."
+    />
+    <meta property="og:title" content="Automação da Torre do Telescópio" />
+    <meta
+      property="og:description"
+      content="Controlo seguro e modular das portadas, ambiente e futura rotação da cúpula."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://pedroflc.github.io/automacao-torre-telescopio/" />
+    <meta property="og:image" content="https://pedroflc.github.io/automacao-torre-telescopio/assets/og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Automação da Torre do Telescópio" />
+    <meta
+      name="twitter:description"
+      content="Controlo seguro e modular das portadas, ambiente e futura rotação da cúpula."
+    />
+    <meta name="twitter:image" content="https://pedroflc.github.io/automacao-torre-telescopio/assets/og.png" />
+    <title>Automação da Torre do Telescópio</title>
+    <link rel="stylesheet" href="assets/site.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo">Saltar para o conteúdo</a>
+
+    <header class="site-header">
+      <a class="brand" href="#topo" aria-label="Automação da Torre do Telescópio — início">
+        <span class="brand-mark" aria-hidden="true">T</span>
+        <span>
+          <strong>Torre do Telescópio</strong>
+          <small>Automação modular</small>
+        </span>
+      </a>
+      <nav aria-label="Navegação principal">
+        <a href="#sistema">Sistema</a>
+        <a href="#arquitetura">Arquitetura</a>
+        <a href="#estado">Estado</a>
+      </nav>
+    </header>
+
+    <main id="conteudo">
+      <section class="hero" id="topo">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="status-dot"></span> Protótipo funcional · Portadas</p>
+          <h1>Uma base segura para automatizar o observatório.</h1>
+          <p class="intro">
+            O primeiro módulo controla as portadas por botões físicos ou Bluetooth,
+            protege o movimento com fins de curso e acompanha o ambiente. A arquitetura
+            fica preparada para receber o mini-PC ARM, o PLC e o encoder da cúpula.
+          </p>
+          <div class="actions">
+            <a class="button primary" href="#estado">Consultar estado do projeto</a>
+            <a class="button secondary" href="#arquitetura">Ver evolução do sistema</a>
+          </div>
+        </div>
+
+        <aside class="control-card" aria-label="Estado do módulo das portadas">
+          <div class="control-heading">
+            <div>
+              <span>MÓDULO 01</span>
+              <strong>Portadas</strong>
+            </div>
+            <span class="pill online">Operacional</span>
+          </div>
+          <dl class="signal-list">
+            <div><dt>Controlador</dt><dd>Arduino UNO R4 WiFi</dd></div>
+            <div><dt>Acionamento</dt><dd>Electromen EM-243C</dd></div>
+            <div><dt>Comunicação</dt><dd>Bluetooth LE</dd></div>
+            <div><dt>Ambiente</dt><dd>BME680 + Bosch BSEC2</dd></div>
+          </dl>
+          <div class="limit-grid" aria-label="Estado das proteções de movimento">
+            <div><span>SENTIDO FW</span><strong>OK</strong><small>fim protegido</small></div>
+            <div><span>SENTIDO BW</span><strong>OK</strong><small>fim protegido</small></div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="section" id="sistema">
+        <div class="section-heading">
+          <p class="eyebrow">O que já existe</p>
+          <h2>Controlo local, móvel e independente.</h2>
+          <p>O funcionamento essencial permanece disponível mesmo sem rede no telescópio.</p>
+        </div>
+        <div class="feature-grid">
+          <article>
+            <span class="number">01</span>
+            <h3>Movimento protegido</h3>
+            <p>FW, BW e STOP com exclusão de sentidos, travagem antes da inversão e bloqueio apenas no sentido do limite atingido.</p>
+          </article>
+          <article>
+            <span class="number">02</span>
+            <h3>Dois postos de comando</h3>
+            <p>Os quatro botões físicos e os controlos da aplicação Android executam as mesmas funções, incluindo a iluminação.</p>
+          </article>
+          <article>
+            <span class="number">03</span>
+            <h3>Leitura ambiental</h3>
+            <p>Temperatura, humidade, pressão e qualidade do ar ficam disponíveis na aplicação através do sensor BME680.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section architecture" id="arquitetura">
+        <div class="section-heading narrow">
+          <p class="eyebrow">Arquitetura evolutiva</p>
+          <h2>Cada função no equipamento certo.</h2>
+          <p>A documentação crescerá com o projeto, mantendo separados controlo, supervisão e segurança elétrica.</p>
+        </div>
+        <ol class="roadmap">
+          <li class="done">
+            <span class="roadmap-state">Em funcionamento</span>
+            <div>
+              <h3>Portadas e ambiente</h3>
+              <p>UNO R4, EM-243C, botões, fins de curso, relé da lâmpada, BME680 e aplicação Android BLE.</p>
+            </div>
+          </li>
+          <li>
+            <span class="roadmap-state">Próxima integração</span>
+            <div>
+              <h3>Rede e supervisão local</h3>
+              <p>Mini-PC ARM como nó central do observatório, interface local e ponte entre os vários controladores.</p>
+            </div>
+          </li>
+          <li>
+            <span class="roadmap-state">Planeado</span>
+            <div>
+              <h3>PLC e rotação da cúpula</h3>
+              <p>Controlo industrial do motor trifásico, leitura do encoder e posicionamento coordenado da cúpula.</p>
+            </div>
+          </li>
+          <li>
+            <span class="roadmap-state">Evolução</span>
+            <div>
+              <h3>Automação do observatório</h3>
+              <p>Telemetria, estados, alarmes e operações assistidas a partir de uma interface unificada.</p>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section class="section docs" id="estado">
+        <div class="section-heading narrow">
+          <p class="eyebrow">Estado público</p>
+          <h2>Acompanhamento do projeto.</h2>
+          <p>Resumo destinado aos intervenientes. O código, os esquemas completos e os ficheiros técnicos permanecem reservados à equipa.</p>
+        </div>
+        <div class="docs-grid">
+          <article>
+            <span>01</span>
+            <div><strong>Controlo das portadas</strong><small>Protótipo funcional · ensaios em curso</small></div>
+          </article>
+          <article>
+            <span>02</span>
+            <div><strong>Aplicação e ambiente</strong><small>Bluetooth e BME680 integrados</small></div>
+          </article>
+          <article>
+            <span>03</span>
+            <div><strong>Supervisão local</strong><small>Arquitetura do mini-PC ARM em preparação</small></div>
+          </article>
+          <article>
+            <span>04</span>
+            <div><strong>Rotação da cúpula</strong><small>PLC, acionamento e encoder em planeamento</small></div>
+          </article>
+        </div>
+        <p class="updated">Última atualização pública: 3 de setembro de 2026</p>
+      </section>
+
+      <section class="safety" aria-labelledby="seguranca">
+        <div class="safety-mark" aria-hidden="true">!</div>
+        <div>
+          <p class="eyebrow">Princípio de projeto</p>
+          <h2 id="seguranca">A segurança não depende do software.</h2>
+          <p>Paragem de emergência, fins de curso e proteções elétricas mantêm atuação independente do Arduino, da aplicação e do futuro computador de supervisão.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Projeto em desenvolvimento · Observatório privado</p>
+      <a href="#topo">Voltar ao topo ↑</a>
+    </footer>
+  </body>
+</html>
