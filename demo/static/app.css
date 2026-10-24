@@ -73,3 +73,12 @@
 .shutter-overlay.demo-visual i:last-child,.shutter-overlay.demo-visual.open i:last-child{transform:translateX(calc(var(--shutter-progress,0) * 78%))}
 [data-demo-action]:hover,.telescope [data-demo-command]:hover{filter:brightness(1.16)}
 [data-demo-action]:active,.telescope [data-demo-command]:active{filter:brightness(.85)}
+
+.shutter-overlay.demo-visual i:first-child,.shutter-overlay.demo-visual.open i:first-child{transform:translateX(calc(var(--shutter-progress,0) * -32%))}
+.shutter-overlay.demo-visual i:last-child,.shutter-overlay.demo-visual.open i:last-child{transform:translateX(calc(var(--shutter-progress,0) * 32%))}
+.demo-shutter-track{height:27px;display:flex;align-items:center;gap:10px;padding:3px 8px;margin-top:3px;border:1px solid #17506a;border-radius:5px;background:#061e2e;color:#95c9e1;font-size:10px;font-weight:700}
+.demo-shutter-track .doors{width:70px;height:17px;display:flex;justify-content:center;flex:none}
+.demo-shutter-track i{height:100%;width:35px;background:linear-gradient(90deg,#3b5165,#d4d2c9,#3b5165);border:1px solid #7f9bae;transition:none}
+.demo-shutter-track i:first-child{transform:translateX(calc(var(--shutter-progress,0) * -32%))}
+.demo-shutter-track i:last-child{transform:translateX(calc(var(--shutter-progress,0) * 32%))}
+.demo-shutter-track span{margin-left:auto;text-align:right}
