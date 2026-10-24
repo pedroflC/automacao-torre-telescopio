@@ -65,3 +65,11 @@
 .messages>small{margin-top:auto}
 @media(max-width:700px){.scene-telemetry{display:none}}
 .scene-readout small{color:#9dc2d8}
+
+/* The public simulation animates shutter position only inside this browser. */
+.shutter-overlay.demo-visual{left:36%;top:4%;width:30%;height:29%;gap:0;opacity:.95;z-index:2}
+.shutter-overlay.demo-visual i{width:50%;height:100%;border:2px solid #182637;border-radius:4px;background:linear-gradient(90deg,#364458 0%,#b9b4a9 19%,#e4d8c5 48%,#827f7d 78%,#1a2735 100%);box-shadow:0 4px 15px #0009;transition:none}
+.shutter-overlay.demo-visual i:first-child,.shutter-overlay.demo-visual.open i:first-child{transform:translateX(calc(var(--shutter-progress,0) * -78%))}
+.shutter-overlay.demo-visual i:last-child,.shutter-overlay.demo-visual.open i:last-child{transform:translateX(calc(var(--shutter-progress,0) * 78%))}
+[data-demo-action]:hover,.telescope [data-demo-command]:hover{filter:brightness(1.16)}
+[data-demo-action]:active,.telescope [data-demo-command]:active{filter:brightness(.85)}
