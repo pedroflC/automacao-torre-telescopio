@@ -1,6 +1,7 @@
 "use strict";
 // Public Pages demo. All state lives in this browser tab; no network or hardware API.
-const observatory = {latitude:41.107052, longitude:-8.589201};
+// Approximate Gaia location for the public illustration; not site coordinates.
+const observatory = {latitude:41.1, longitude:-8.6};
 const objects = [
   ["M31 · Andrômeda","Galáxia","Andrómeda",3.4,0+42/60+44/3600,41+16/60+8/3600,"Messier / NGC 224","00h 42m 44s","+41° 16′ 08″"],
   ["M42 · Órion","Nebulosa","Órion",4,5+35/60+17/3600,-(5+23/60+15/3600),"Messier / NGC 1976","05h 35m 17s","−05° 23′ 15″"],
