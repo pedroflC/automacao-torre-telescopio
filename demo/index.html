@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#03131f"><title>Torre · Demonstração virtual</title>
+  <link rel="stylesheet" href="./static/app.css">
+  <script src="./static/app.js" defer></script>
+  <script src="./static/demo_runtime.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><strong>Observatório Manuel de Barros</strong><small>Controlo da cúpula · ROCK 5B</small></div>
+    <div class="clock badge" id="clock">—</div>
+    <div class="top-status">
+      <div class="badge room" id="room-badge" role="button" tabindex="0" aria-label="Alternar iluminação simulada"><span class="symbol">♙</span><span>ILUMINAÇÃO<br>SALA <em id="lamp-top">SEM DADOS</em></span></div>
+      <div class="badge">ROCK 5B<br><b id="rock-top">OFFLINE</b></div>
+      <div class="badge">ETHERNET<br><b>Modbus TCP</b></div>
+      <div class="badge">OPTA<br><b id="opta-top">OFFLINE</b></div>
+      <div class="badge">BLE v2<br><b id="ble-top">OFFLINE</b></div>
+    </div>
+    <div class="view-only">SIMULAÇÃO<br>VIRTUAL</div>
+  </header>
+  <div id="source-banner" class="source-banner">SIMULADO · SEM LIGAÇÃO AO ROCK OU AO HARDWARE</div>
+  <div class="shell">
+    <nav class="sidebar" aria-label="Navegação">
+      <button class="nav active" data-page="controlo"><span>⌂</span>CONTROLO</button>
+      <button class="nav" data-page="telescopio"><span>⚒</span>TELESCÓPIO</button>
+      <button class="nav" data-page="estados"><span>▥</span>ESTADOS</button>
+      <button class="nav" data-page="manut"><span>⚒</span>MANUT.</button>
+      <button class="nav" data-page="opcoes"><span>⚙</span>OPÇÕES</button>
+      <div class="sidebar-art"><img src="./static/images/dome.png" alt="Observatório"><small>OBSERVATÓRIO<br>MANUEL DE BARROS</small></div>
+    </nav>
+    <main id="main">
+      <section class="page active" id="page-controlo">
+        <div class="control-grid">
+          <section class="card dome-hero">
+            <div class="hero-heading"><div><h1>◉ &nbsp;CÚPULA</h1><small>ROTAÇÃO E PORTADAS</small></div><div class="status-pill" id="dome-state">SEM DADOS</div></div>
+            <div class="dome-scene">
+              <img src="./static/images/dome.png" alt="Cúpula do observatório">
+              <div class="dial"><span>N</span><strong id="dial-az">—</strong><b id="dial-direction">SEM DADOS</b></div>
+              <div class="compass-n">N</div><div class="compass-w">O</div><div class="compass-e">E</div><div class="compass-s">S</div>
+              <div class="az-ring" id="az-ring"><i></i></div>
+              <div class="shutter-overlay" id="shutter-overlay"><i></i><i></i></div>
+              <aside class="scene-telemetry" aria-label="Leitura visual da cúpula">
+                <small>ÂNGULO RELATIVO</small><strong id="hero-relative">—</strong>
+                <dl><dt>Rotação</dt><dd id="hero-rotation">SEM DADOS</dd><dt>Portadas</dt><dd id="hero-shutters">SEM DADOS</dd><dt>Limites</dt><dd id="hero-limits">—</dd><dt>Alarmes</dt><dd id="hero-alarm">—</dd></dl>
+              </aside>
+              <div class="scene-readout"><strong>ÂNGULO RELATIVO &nbsp; • &nbsp; AZIMUTE POR CALIBRAR</strong><span id="scene-caption">SEM POSIÇÃO ABSOLUTA · SEM DADOS</span><small>PORTADAS · DESENHO ILUSTRATIVO</small></div>
+            </div>
+          </section>
+          <div class="control-side">
+            <section class="card"><h2>⚡ &nbsp;Opta Ethernet</h2><div class="accent" id="opta-state">OFFLINE</div><dl><dt>Transporte</dt><dd>Modbus TCP</dd><dt>Telemetria</dt><dd id="opta-telemetry">SEM DADOS</dd><dt>Movimento</dt><dd id="opta-motion">—</dd></dl></section>
+            <section class="card"><h2>⇥ &nbsp;Portadas · BLE v2</h2><div id="ble-state">OFFLINE</div><dl><dt>Estado</dt><dd id="shutter-state">SEM DADOS</dd><dt>Ownership</dt><dd id="ble-owner">—</dd><dt>Lâmpada</dt><dd id="lamp-state">SEM DADOS</dd></dl></section>
+            <section class="card"><h2>⚒ &nbsp;TELESCÓPIO</h2><div id="telescope-state">DESLIGADO</div><dl><dt>Ligação</dt><dd id="telescope-protocol">—</dd><dt>Alvo</dt><dd>—</dd><dt>Tracking</dt><dd id="telescope-tracking">—</dd><dt>Estado</dt><dd id="telescope-backend">SEM BACKEND</dd></dl></section>
+            <section class="card metric-card"><h2>◉ &nbsp;Encoder visual</h2><small id="encoder-type">SEM TELEMETRIA · RELATIVO</small><strong id="encoder-az">—</strong><span id="encoder-count">ENCODER —</span></section>
+            <section class="card"><h2>⊕ &nbsp;Azimute</h2><small>POSIÇÃO ABSOLUTA</small><div class="warning">! &nbsp; POR CALIBRAR</div><p>Sem azimute absoluto</p></section>
+            <section class="card"><h2>◇ &nbsp;Limites / estado</h2><dl><dt>Abertura</dt><dd id="limit-open">—</dd><dt>Fecho</dt><dd id="limit-closed">—</dd><dt>Alarme</dt><dd id="ble-alarm">—</dd><dt>STOP BLE</dt><dd id="ble-stop">SEM DADOS</dd></dl></section>
+            <section class="card messages"><h2>≋ &nbsp;Mensagens LIVE</h2><ul id="live-messages"><li>À espera de estado publicado</li></ul><small id="opta-watchdog">WD Opta —</small></section>
+            <section class="card"><h2>▣ &nbsp;Ligação BLE (portadas)</h2><div class="disabled-actions"><button data-demo-action>Ligar BLE</button><button data-demo-action>Adquirir controlo</button></div><small>ALVO · POR CALIBRAR</small><div class="disabled-actions"><span class="input-faux">180.0</span><button data-demo-action>IR</button></div></section>
+          </div>
+          <section class="card rotation-actions"><h2>◉ &nbsp;ROTAÇÃO DA CÚPULA</h2><div><button data-demo-action>↶ &nbsp; CCW<br>ESQUERDA</button><button data-demo-action>CW &nbsp; ↷<br>DIREITA</button></div><small>⊕ &nbsp; REFERÊNCIAS FÍSICAS &nbsp; • &nbsp; N &nbsp; E &nbsp; S &nbsp; O</small></section>
+          <section class="card shutter-actions"><h2>▣ &nbsp;PORTADAS SUPERIORES · DESLOCAÇÃO LATERAL</h2><div><button data-demo-action>↔ &nbsp; ABRIR</button><button data-demo-action class="stop">■ &nbsp; STOP<br>CÚPULA + PORTADAS</button><button data-demo-action>FECHAR &nbsp; ⇥</button></div></section>
+        </div>
+      </section>
+      <section class="page" id="page-telescopio"><div id="telescope-content"></div></section>
+      <section class="page" id="page-estados"><div class="page-title"><h1>ESTADOS</h1><small>Demonstração virtual de telemetria</small></div><div class="simple-grid"><article class="card"><h2>Opta</h2><p id="states-opta">SEM DADOS</p></article><article class="card"><h2>BLE v2</h2><p id="states-ble">SEM DADOS</p></article><article class="card"><h2>Telescópio</h2><p id="states-telescope">SEM BACKEND</p></article><article class="card"><h2>Azimute</h2><p>Posição absoluta por calibrar</p></article></div></section>
+      <section class="page" id="page-manut"><div class="page-title"><h1>MANUT.</h1><small>Demonstração virtual</small></div><article class="card simple-card"><h2>Manutenção</h2><p>Funções de manutenção indisponíveis na interface pública.</p></article></section>
+      <section class="page" id="page-opcoes"><div class="page-title"><h1>OPÇÕES</h1><small>Demonstração virtual</small></div><article class="card simple-card"><h2>Configuração</h2><p>As opções do ROCK não estão disponíveis nesta interface.</p></article></section>
+    </main>
+  </div>
+</body>
+</html>
