@@ -43,6 +43,8 @@ function decorateTelescope(){
     const hint=host.querySelector(".main-actions small");if(hint)hint.textContent="Passos apenas virtuais · sem montagem real configurada.";
   }
   if(telView==="sessao"){
+    const listHint=host.querySelector(".session > .card:first-child > small");if(listHint)listHint.textContent=demo.ui.sessionStarted?"Objetos disponíveis no catálogo · sessão virtual ativa":"Objetos disponíveis no catálogo · sessão por iniciar";
+    const notesHint=host.querySelector(".session-notes > small");if(notesHint)notesHint.textContent=demo.ui.sessionStarted?"Observação virtual em curso":"Preparação da observação · sem sessão iniciada";
     const note=host.querySelector(".session-notes .note-box");if(note)note.textContent=demo.ui.sessionStarted?`Sessão virtual iniciada · ${demo.ui.sessionTargets.length} alvo(s) registado(s).`:"Sessão virtual ainda por iniciar.";
     const hint=host.querySelector(".session-actions .yellow");if(hint)hint.textContent="Comandos apenas virtuais · nenhuma ligação ao hardware.";
   }
