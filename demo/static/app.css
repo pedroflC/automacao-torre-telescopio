@@ -82,3 +82,6 @@
 .demo-shutter-track i:first-child{transform:translateX(calc(var(--shutter-progress,0) * -32%))}
 .demo-shutter-track i:last-child{transform:translateX(calc(var(--shutter-progress,0) * 32%))}
 .demo-shutter-track span{margin-left:auto;text-align:right}
+.simple-card [aria-pressed="true"]{outline:2px solid #25d5f2;background:linear-gradient(#0789c5,#075087)}
+#demo-toast{position:fixed;right:14px;top:155px;max-width:min(340px,calc(100vw - 28px));padding:11px 14px;border:1px solid #13b5dc;border-radius:7px;background:#06314beF;color:#effbff;box-shadow:0 5px 18px #000b;font-size:12px;font-weight:700;z-index:50}
+#demo-toast[hidden]{display:none}
